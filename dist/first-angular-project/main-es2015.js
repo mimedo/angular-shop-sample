@@ -45,7 +45,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<h3>Cart</h3>\n\n<div class=\"cart-item\" *ngFor=\"let item of items\">\n  <span>{{ item.name }}</span>\n  <span>{{ item.price | currency }}</span>\n  <span><a (click)=\"removeFromCard(item)\"><i class=\"material-icons\">delete</i></a></span>\n</div>\n\n<button (click)=\"clearCart()\" *ngIf=\"items.length\">Clear cart</button>\n\n<div class=\"example-container\">\n  <form [formGroup]=\"checkoutForm\" (ngSubmit)=\"onSubmit()\"> \n    <mat-form-field>\n      <input matInput placeholder=\"Enter your email\" formControlName=\"email\">\n      <mat-error *ngIf=\"errorHandling('email', 'required')\">\n        Enter email\n      </mat-error>\n      <mat-error *ngIf=\"errorHandling('email', 'email')\">\n        Invalid email\n      </mat-error>\n    </mat-form-field>\n  </form>\n</div>\n\n<p><a routerLink=\"/shipping\">Shipping Prices</a></p>");
+/* harmony default export */ __webpack_exports__["default"] = ("<h3>Cart</h3>\n\n<div class=\"cart-item\" *ngFor=\"let item of items\">\n  <span>{{ item.name }}</span>\n  <span>{{ item.price | currency }}</span>\n  <span><a (click)=\"removeFromCard(item)\"><i class=\"material-icons\">delete</i></a></span>\n</div>\n\n<button (click)=\"clearCart()\" *ngIf=\"items.length\">Clear cart</button>\n\n<div class=\"example-container\">\n  <form [formGroup]=\"checkoutForm\" (ngSubmit)=\"onSubmit()\">\n    <div>\n      <mat-form-field>\n        <input matInput placeholder=\"Enter your email\" formControlName=\"email\">\n        <mat-error *ngIf=\"errorHandling('email', 'required')\">\n          Enter email\n        </mat-error>\n        <mat-error *ngIf=\"errorHandling('email', 'email')\">\n          Invalid email\n        </mat-error>\n      </mat-form-field>\n    </div>\n    \n    <div>\n      <mat-form-field>\n        <input matInput placeholder=\"Enter your email\" formControlName=\"email\">\n        <mat-error *ngIf=\"errorHandling('email', 'required')\">\n          Enter email\n        </mat-error>\n        <mat-error *ngIf=\"errorHandling('email', 'email')\">\n          Invalid email\n        </mat-error>\n      </mat-form-field>\n    </div>\n\n    <div class=\"button-wrapper\">\n      <button mat-flat-button color=\"primary\">Submit</button>\n    </div>\n  </form>\n</div>\n\n<p><a routerLink=\"/shipping\">Shipping Prices</a></p>");
 
 /***/ }),
 
@@ -570,6 +570,7 @@ let CartComponent = class CartComponent {
     }
     reactiveForm() {
         this.checkoutForm = this.formBuilder.group({
+            name: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]],
             email: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].email]]
         });
     }

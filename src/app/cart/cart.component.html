@@ -8,17 +8,32 @@
 
 <button (click)="clearCart()" *ngIf="items.length">Clear cart</button>
 
-<div class="example-container">
-  <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()"> 
-    <mat-form-field>
-      <input matInput placeholder="Enter your email" formControlName="email">
-      <mat-error *ngIf="errorHandling('email', 'required')">
-        Enter email
-      </mat-error>
-      <mat-error *ngIf="errorHandling('email', 'email')">
-        Invalid email
-      </mat-error>
-    </mat-form-field>
+<div *ngIf="items.length" class="example-container">
+  <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Enter your name" formControlName="name">
+        <mat-error *ngIf="errorHandling('name', 'required')">
+          Enter name
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Enter your email" formControlName="email">
+        <mat-error *ngIf="errorHandling('email', 'required')">
+          Enter email
+        </mat-error>
+        <mat-error *ngIf="errorHandling('email', 'email')">
+          Invalid email
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="button-wrapper">
+      <button color="primary" [disabled]="!checkoutForm.valid">Submit</button>
+    </div>
   </form>
 </div>
 

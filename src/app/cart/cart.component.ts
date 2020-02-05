@@ -23,6 +23,7 @@ export class CartComponent {
 
    reactiveForm() {
     this.checkoutForm = this.formBuilder.group({
+      name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]]
     })
    }
