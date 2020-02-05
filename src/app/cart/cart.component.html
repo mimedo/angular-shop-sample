@@ -1,0 +1,25 @@
+<h3>Cart</h3>
+
+<div class="cart-item" *ngFor="let item of items">
+  <span>{{ item.name }}</span>
+  <span>{{ item.price | currency }}</span>
+  <span><a (click)="removeFromCard(item)"><i class="material-icons">delete</i></a></span>
+</div>
+
+<button (click)="clearCart()" *ngIf="items.length">Clear cart</button>
+
+<div class="example-container">
+  <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()"> 
+    <mat-form-field>
+      <input matInput placeholder="Enter your email" formControlName="email">
+      <mat-error *ngIf="errorHandling('email', 'required')">
+        Enter email
+      </mat-error>
+      <mat-error *ngIf="errorHandling('email', 'email')">
+        Invalid email
+      </mat-error>
+    </mat-form-field>
+  </form>
+</div>
+
+<p><a routerLink="/shipping">Shipping Prices</a></p>
