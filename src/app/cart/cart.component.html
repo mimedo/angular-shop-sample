@@ -13,8 +13,8 @@
     <div>
       <mat-form-field>
         <input matInput placeholder="Enter your name" formControlName="name">
-        <mat-error *ngIf="errorHandling('name', 'required')">
-          Enter name
+        <mat-error>
+          {{ getErrorMessage(checkoutForm.get('name'), 'name')?.error }}
         </mat-error>
       </mat-form-field>
     </div>
@@ -22,11 +22,8 @@
     <div>
       <mat-form-field>
         <input matInput placeholder="Enter your email" formControlName="email">
-        <mat-error *ngIf="errorHandling('email', 'required')">
-          Enter email
-        </mat-error>
-        <mat-error *ngIf="errorHandling('email', 'email')">
-          Invalid email
+        <mat-error>
+          {{ getErrorMessage(checkoutForm.get('email'), 'email')?.error }}
         </mat-error>
       </mat-form-field>
     </div>

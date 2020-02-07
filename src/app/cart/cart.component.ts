@@ -19,17 +19,29 @@ export class CartComponent {
     // Populate items property with products (items) in array gathered from cartService
     this.items = this.cartService.getItems();
     this.reactiveForm();
-   }
+  }
 
-   reactiveForm() {
+  reactiveForm() {
     this.checkoutForm = this.formBuilder.group({
       name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]]
     })
-   }
+  }
 
-  errorHandling = (control: string, error: string) => {
-    return this.checkoutForm.controls[control].hasError(error);
+  getErrorMessage(control, fieldName) {
+    let error = null;
+    if (control.errors) {
+      const firstKey = Object.keys(control.errors)[0];
+      switch (firstKey) {
+        case 'required':
+          error = { error: 'Enter ' + fieldName }
+          break;
+        case 'email':
+          error = { error: 'Enter valid ' + fieldName}
+          break;
+      }
+    }
+    return error
   }
 
   removeFromCard(product) {
