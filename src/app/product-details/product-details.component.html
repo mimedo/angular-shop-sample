@@ -1,9 +1,0 @@
-<h2>Product Details</h2>
-
-<div *ngIf="product">
-	<h3>{{ product.name }}</h3>
-	<h4>{{ product.price | currency }}</h4>
-	<p>{{ product.description }}</p>
-
-	<button mat-raised-button color="primary" (click)="addToCart(product)"><i class="material-icons">shopping_cart</i>Add to cart</button>
-</div>

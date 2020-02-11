@@ -4,22 +4,22 @@ import { RouterModule } from "@angular/router";
 import { ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { AppComponent } from "./app.component";
-import { TopBarComponent } from "./top-bar/top-bar.component";
-import { ProductListComponent } from "./product-list/product-list.component";
-import { ProductAlertsComponent } from "./product-alerts/product-alerts.component";
-import { ProductDetailsComponent } from "./product-details/product-details.component";
-import { CartService } from "./services/cart.service";
-import { CartComponent } from "./cart/cart.component";
-import { ShippingComponent } from "./shipping/shipping.component";
+import { TopBarComponent } from "@components/top-bar/top-bar.component";
+import { ProductListComponent } from "@components/product/product-list/product-list.component";
+import { ProductAlertsComponent } from "@components/product/product-alerts/product-alerts.component";
+import { ProductDetailsComponent } from "@components/product/product-details/product-details.component";
+import { CartService } from "@services/cart.service";
+import { CartComponent } from "@components/cart/cart.component";
+import { ShippingComponent } from "@components/shipping/shipping.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material";
 import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
 import { MatSelectModule } from "@angular/material";
-import { LoginComponent } from "./login/login.component";
-import { RegisterComponent } from "./register/register.component";
-import { UserListComponent } from "./user-list/user-list.component";
+import { LoginComponent } from "@components/login/login.component";
+import { RegisterComponent } from "@components/register/register.component";
+import { UserListComponent } from "@components/user-list/user-list.component";
 
 @NgModule({
   imports: [
