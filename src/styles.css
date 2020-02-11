@@ -7,18 +7,13 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.container {
+  margin: 0 16px;
+}
+
 body {
   margin: 0;
   color: #616161;
-}
-
-.container {
-  display: flex;
-  flex-direction: row;
-}
-
-router-outlet + *  {
-  padding: 0 16px;
 }
 
 /* Text */
@@ -52,9 +47,8 @@ a:hover {
 }
 
 button i.material-icons, a i.material-icons {
-  color: white;
   padding-right: 4px;
-} 
+}
 
 .button:hover, button:hover {
   opacity: 0.8;

@@ -8,16 +8,18 @@ import { TopBarComponent } from "./top-bar/top-bar.component";
 import { ProductListComponent } from "./product-list/product-list.component";
 import { ProductAlertsComponent } from "./product-alerts/product-alerts.component";
 import { ProductDetailsComponent } from "./product-details/product-details.component";
-import { CartService } from "./cart.service";
+import { CartService } from "./services/cart.service";
 import { CartComponent } from "./cart/cart.component";
-import { ShippingComponent } from './shipping/shipping.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+import { ShippingComponent } from "./shipping/shipping.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material";
+import { MatIconModule } from "@angular/material/icon";
+import { MatButtonModule } from "@angular/material/button";
+import { MatSelectModule } from "@angular/material";
+import { LoginComponent } from "./login/login.component";
+import { RegisterComponent } from "./register/register.component";
+import { UserListComponent } from "./user-list/user-list.component";
 
 @NgModule({
   imports: [
@@ -30,13 +32,15 @@ import { RegisterComponent } from './register/register.component';
       { path: "cart", component: CartComponent },
       { path: "shipping", component: ShippingComponent },
       { path: "login", component: LoginComponent },
-      { path: "register", component: RegisterComponent }
+      { path: "register", component: RegisterComponent },
+      { path: "userList", component: UserListComponent }
     ]),
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSelectModule
   ],
   declarations: [
     AppComponent,
@@ -47,7 +51,8 @@ import { RegisterComponent } from './register/register.component';
     CartComponent,
     ShippingComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    UserListComponent
   ],
   bootstrap: [AppComponent],
   providers: [CartService]

@@ -6,8 +6,8 @@
   <span><a (click)="removeFromCard(item)"><i class="material-icons">delete</i></a></span>
 </div>
 
-<button (click)="clearCart()" *ngIf="items.length">Clear cart</button>
-
+<button mat-raised-button color="primary" (click)="clearCart()" *ngIf="items.length">Clear cart</button>
+<!--
 <div *ngIf="items.length" class="example-container">
   <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
     <div>
@@ -29,9 +29,10 @@
     </div>
 
     <div class="button-wrapper">
-      <button color="primary" [disabled]="!checkoutForm.valid">Submit</button>
+      <button mat-raised-button color="primary" [disabled]="!checkoutForm.valid">Submit</button>
     </div>
   </form>
 </div>
+-->
 
 <p><a routerLink="/shipping">Shipping Prices</a></p>

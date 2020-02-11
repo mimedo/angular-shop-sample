@@ -1,1 +1,72 @@
-<p>register works!</p>
+<div class="registerContainer">
+    <h1>Register</h1>
+    <div class="registerFormContainer">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <mat-form-field>
+                <mat-label for="gender">Gender</mat-label>
+                <mat-select>
+                    <mat-option value="male">Male</mat-option>
+                    <mat-option value="female">Female</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label for="firstName">Firstname</mat-label>
+                <input matInput type="text" formControlField="firstName">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label for="lastName">Lastname</mat-label>
+                <input matInput type="text" formControlField="lastName">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label for="street">Street</mat-label>
+                <input matInput type="text" formControlField="street">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label for="streetNumber">Number</mat-label>
+                <input matInput type="text" formControlField="streetNumber">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label for="postZip">PLZ</mat-label>
+                <input matInput type="text" formControlField="postZip">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label for="place">Place</mat-label>
+                <input matInput type="text" formControlField="place">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label for="email">E-Mail</mat-label>
+                <input matInput type="text" formControlField="email">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label for="emailConfirmation">E-Mail confirmation</mat-label>
+                <input matInput type="text" formControlField="emailConfirmation">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label for="password">Password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlField="password" />
+                <button type="button" matSuffix class="mat-icon-button mat-button-base" (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+                </button>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label for="passwordConfirmation">Password confirmation</mat-label>
+                <input matInput [type]="hideConfirmation ? 'password' : 'text'" formControlField="passwordConfirmation" />
+                <button type="button" matSuffix class="mat-icon-button mat-button-base" (click)="hideConfirmation = !hideConfirmation" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hideConfirmation">
+                    <mat-icon>{{ hideConfirmation ? 'visibility_off' : 'visibility' }}</mat-icon>
+                </button>
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" type="submit">Register</button>
+        </form>
+    </div>
+</div>

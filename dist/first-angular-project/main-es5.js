@@ -65,7 +65,27 @@
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<h3>Cart</h3>\n\n<div class=\"cart-item\" *ngFor=\"let item of items\">\n  <span>{{ item.name }}</span>\n  <span>{{ item.price | currency }}</span>\n  <span><a (click)=\"removeFromCard(item)\"><i class=\"material-icons\">delete</i></a></span>\n</div>\n\n<button (click)=\"clearCart()\" *ngIf=\"items.length\">Clear cart</button>\n\n<div *ngIf=\"items.length\" class=\"example-container\">\n  <form [formGroup]=\"checkoutForm\" (ngSubmit)=\"onSubmit()\">\n    <div>\n      <mat-form-field>\n        <input matInput placeholder=\"Enter your name\" formControlName=\"name\">\n        <mat-error *ngIf=\"errorHandling('name', 'required')\">\n          Enter name\n        </mat-error>\n      </mat-form-field>\n    </div>\n\n    <div>\n      <mat-form-field>\n        <input matInput placeholder=\"Enter your email\" formControlName=\"email\">\n        <mat-error *ngIf=\"checkoutForm.controls[control].error\">\n          Test error\n        </mat-error>\n      </mat-form-field>\n    </div>\n\n    <div class=\"button-wrapper\">\n      <button color=\"primary\" [disabled]=\"!checkoutForm.valid\">Submit</button>\n    </div>\n  </form>\n</div>\n\n<p><a routerLink=\"/shipping\">Shipping Prices</a></p>";
+    __webpack_exports__["default"] = "<h3>Cart</h3>\n\n<div class=\"cart-item\" *ngFor=\"let item of items\">\n  <span>{{ item.name }}</span>\n  <span>{{ item.price | currency }}</span>\n  <span><a (click)=\"removeFromCard(item)\"><i class=\"material-icons\">delete</i></a></span>\n</div>\n\n<button mat-raised-button color=\"primary\" (click)=\"clearCart()\" *ngIf=\"items.length\">Clear cart</button>\n<!--\n<div *ngIf=\"items.length\" class=\"example-container\">\n  <form [formGroup]=\"checkoutForm\" (ngSubmit)=\"onSubmit()\">\n    <div>\n      <mat-form-field>\n        <input matInput placeholder=\"Enter your name\" formControlName=\"name\">\n        <mat-error>\n          {{ getErrorMessage(checkoutForm.get('name'), 'name')?.error }}\n        </mat-error>\n      </mat-form-field>\n    </div>\n\n    <div>\n      <mat-form-field>\n        <input matInput placeholder=\"Enter your email\" formControlName=\"email\">\n        <mat-error>\n          {{ getErrorMessage(checkoutForm.get('email'), 'email')?.error }}\n        </mat-error>\n      </mat-form-field>\n    </div>\n\n    <div class=\"button-wrapper\">\n      <button mat-raised-button color=\"primary\" [disabled]=\"!checkoutForm.valid\">Submit</button>\n    </div>\n  </form>\n</div>\n-->\n\n<p><a routerLink=\"/shipping\">Shipping Prices</a></p>";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/login/login.component.html":
+  /*!**********************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/login/login.component.html ***!
+    \**********************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppLoginLoginComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<h1>Login</h1>\n<div class=\"loginFormContainer\">\n    <form [formGroup]='loginForm' (ngSubmit)=\"onSubmit()\">\n        <mat-form-field>\n            <mat-label for=\"email\">E-Mail</mat-label>\n            <input matInput type=\"text\" formControlField=\"email\" />\n            <mat-error>\n                Test\n            </mat-error>\n        </mat-form-field>\n\n        <mat-form-field>\n            <mat-label for=\"password\">Password</mat-label>\n            <input matInput [type]=\"hide ? 'password' : 'text'\" formControlField=\"password\" />\n            <button type=\"button\" matSuffix class=\"mat-icon-button mat-button-base\" (click)=\"hide = !hide\" [attr.aria-label]=\"'Hide password'\" [attr.aria-pressed]=\"hide\">\n                <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>\n            </button>\n        </mat-form-field>\n\n        <a [routerLink]=\"['/register']\">No account? Register here!</a> \n\n        <button mat-raised-button color=\"primary\" type=\"submit\">Login</button>\n    </form>\n</div>";
     /***/
   },
 
@@ -85,7 +105,7 @@
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<p *ngIf=\"product.price > 700\">\n  <button (click)=\"notify.emit()\">Notify me!</button>\n</p>";
+    __webpack_exports__["default"] = "<p *ngIf=\"product.price > 700\">\n  <button mat-raised-button color=\"primary\" (click)=\"notify.emit()\">Notify me!</button>\n</p>";
     /***/
   },
 
@@ -105,7 +125,7 @@
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<h2>Product Details</h2>\n\n<div *ngIf=\"product\">\n\t<h3>{{ product.name }}</h3>\n\t<h4>{{ product.price | currency }}</h4>\n\t<p>{{ product.description }}</p>\n\n\t<button (click)=\"addToCart(product)\"><i class=\"material-icons\">shopping_cart</i>Add to cart</button>\n</div>";
+    __webpack_exports__["default"] = "<h2>Product Details</h2>\n\n<div *ngIf=\"product\">\n\t<h3>{{ product.name }}</h3>\n\t<h4>{{ product.price | currency }}</h4>\n\t<p>{{ product.description }}</p>\n\n\t<button mat-raised-button color=\"primary\" (click)=\"addToCart(product)\"><i class=\"material-icons\">shopping_cart</i>Add to cart</button>\n</div>";
     /***/
   },
 
@@ -125,7 +145,27 @@
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<h2>Products</h2>\r\n\r\n<div *ngFor=\"let product of products index as productId\">\r\n  <h3>\r\n    <a [title]=\"product.name + ' details'\" [routerLink]=\"['/products', productId]\" >\r\n      {{ product.name }}\r\n    </a>\r\n  </h3>\r\n\r\n  <p *ngIf=\"product.description\">\r\n    {{ product.description }}\r\n  </p>\r\n\r\n  <button (click)=\"share()\">\r\n    Share\r\n  </button>\r\n\r\n  <app-product-alerts\r\n    [product]=\"product\"\r\n    (notify)=\"onNotify()\">\r\n  </app-product-alerts>\r\n\r\n</div>\r\n\r\n<!-- \r\nCopyright Google LLC. All Rights Reserved.\r\nUse of this source code is governed by an MIT-style license that\r\ncan be found in the LICENSE file at http://angular.io/license\r\n-->";
+    __webpack_exports__["default"] = "<h2>Produc</h2>\r\n\r\n<div *ngFor=\"let product of products index as productId\">\r\n  <h3>\r\n    <a [title]=\"product.name + ' details'\" [routerLink]=\"['/products', productId]\" >\r\n      {{ product.name }}\r\n    </a>\r\n  </h3>\r\n\r\n  <p *ngIf=\"product.description\">\r\n    {{ product.description }}\r\n  </p>\r\n\r\n  <button mat-raised-button color=\"primary\" (click)=\"share()\">\r\n    Share\r\n  </button>\r\n\r\n  <app-product-alerts\r\n    [product]=\"product\"\r\n    (notify)=\"onNotify()\">\r\n  </app-product-alerts>\r\n\r\n</div>\r\n\r\n<!-- \r\nCopyright Google LLC. All Rights Reserved.\r\nUse of this source code is governed by an MIT-style license that\r\ncan be found in the LICENSE file at http://angular.io/license\r\n-->";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/register/register.component.html":
+  /*!****************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/register/register.component.html ***!
+    \****************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppRegisterRegisterComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<div class=\"registerContainer\">\n    <h1>Register</h1>\n    <div class=\"registerFormContainer\">\n        <form [formGroup]=\"registerForm\" (ngSubmit)=\"onSubmit()\">\n            <mat-form-field>\n                <mat-label for=\"gender\">Gender</mat-label>\n                <mat-select>\n                    <mat-option value=\"male\">Male</mat-option>\n                    <mat-option value=\"female\">Female</mat-option>\n                </mat-select>\n            </mat-form-field>\n\n            <mat-form-field>\n                <mat-label for=\"firstName\">Firstname</mat-label>\n                <input matInput type=\"text\" formControlField=\"firstName\">\n            </mat-form-field>\n\n            <mat-form-field>\n                <mat-label for=\"lastName\">Lastname</mat-label>\n                <input matInput type=\"text\" formControlField=\"lastName\">\n            </mat-form-field>\n\n            <mat-form-field>\n                <mat-label for=\"street\">Street</mat-label>\n                <input matInput type=\"text\" formControlField=\"street\">\n            </mat-form-field>\n\n            <mat-form-field>\n                <mat-label for=\"streetNumber\">Number</mat-label>\n                <input matInput type=\"text\" formControlField=\"streetNumber\">\n            </mat-form-field>\n\n            <mat-form-field>\n                <mat-label for=\"postZip\">PLZ</mat-label>\n                <input matInput type=\"text\" formControlField=\"postZip\">\n            </mat-form-field>\n\n            <mat-form-field>\n                <mat-label for=\"place\">Place</mat-label>\n                <input matInput type=\"text\" formControlField=\"place\">\n            </mat-form-field>\n\n            <mat-form-field>\n                <mat-label for=\"email\">E-Mail</mat-label>\n                <input matInput type=\"text\" formControlField=\"email\">\n            </mat-form-field>\n\n            <mat-form-field>\n                <mat-label for=\"emailConfirmation\">E-Mail confirmation</mat-label>\n                <input matInput type=\"text\" formControlField=\"emailConfirmation\">\n            </mat-form-field>\n\n            <mat-form-field>\n                <mat-label for=\"password\">Password</mat-label>\n                <input matInput [type]=\"hide ? 'password' : 'text'\" formControlField=\"password\" />\n                <button type=\"button\" matSuffix class=\"mat-icon-button mat-button-base\" (click)=\"hide = !hide\" [attr.aria-label]=\"'Hide password'\" [attr.aria-pressed]=\"hide\">\n                    <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>\n                </button>\n            </mat-form-field>\n\n            <mat-form-field>\n                <mat-label for=\"passwordConfirmation\">Password confirmation</mat-label>\n                <input matInput [type]=\"hideConfirmation ? 'password' : 'text'\" formControlField=\"passwordConfirmation\" />\n                <button type=\"button\" matSuffix class=\"mat-icon-button mat-button-base\" (click)=\"hideConfirmation = !hideConfirmation\" [attr.aria-label]=\"'Hide password'\" [attr.aria-pressed]=\"hideConfirmation\">\n                    <mat-icon>{{ hideConfirmation ? 'visibility_off' : 'visibility' }}</mat-icon>\n                </button>\n            </mat-form-field>\n\n            <button mat-raised-button color=\"primary\" type=\"submit\">Register</button>\n        </form>\n    </div>\n</div>";
     /***/
   },
 
@@ -165,7 +205,27 @@
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<a [routerLink]=\"['/']\">\r\n  <h1>My Store</h1>\r\n</a>\r\n\r\n<a [routerLink]=\"['/cart']\" class=\"button fancy-button\"><i class=\"material-icons\">shopping_cart</i>Checkout</a>\r\n\r\n<!-- \r\nCopyright Google LLC. All Rights Reserved.\r\nUse of this source code is governed by an MIT-style license that\r\ncan be found in the LICENSE file at http://angular.io/license\r\n-->";
+    __webpack_exports__["default"] = "<a [routerLink]=\"['/']\">\r\n  <h1>My Store</h1>\r\n</a>\r\n\r\n<a [routerLink]=\"['/login']\" mat-raised-button color=\"primary\">\r\n  <i class=\"material-icons\">account_box</i>\r\n  Sign in\r\n</a>\r\n\r\n<a [routerLink]=\"['/cart']\" mat-raised-button color=\"primary\">\r\n  <i class=\"material-icons\"> shopping_cart</i>\r\n  Checkout\r\n</a>\r\n\r\n<!-- \r\nCopyright Google LLC. All Rights Reserved.\r\nUse of this source code is governed by an MIT-style license that\r\ncan be found in the LICENSE file at http://angular.io/license\r\n-->";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/user-list/user-list.component.html":
+  /*!******************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/user-list/user-list.component.html ***!
+    \******************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppUserListUserListComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<div class=\"panel panel-primary\">\n    <div class=\"panel-heading\">\n        <h2>User List</h2>\n    </div>\n    <div class=\"panel-body\">\n        <table class=\"table table-striped\">\n            <thead>\n            <tr>\n                <th>ID</th>\n                <th>Gender</th>\n                <th>Firstname</th>\n                <th>Lastname</th>\n                <th>Street</th>\n                <th>Streetnumber</th>\n                <th>Postzip</th>\n                <th>Place</th>\n                <th>Email</th>\n                <th>Password</th>\n            </tr>\n            </thead>\n            <tbody>\n            <tr *ngFor=\"let user of users | async\">\n                <td>{{user.id}}</td>\n                <td>{{user.gender}}</td>\n                <td>{{user.firstName}}</td>\n                <td>{{user.lastName}}</td>\n                <td>{{user.street}}</td>\n                <td>{{user.streetNumber}}</td>\n                <td>{{user.postzip}}</td>\n                <td>{{user.place}}</td>\n                <td>{{user.email}}</td>\n                <td>{{user.password}}</td>\n                <td><button (click)=\"deleteUser(user.id)\" class=\"btn btn-danger\">Delete</button>\n                    <button (click)=\"userDetails(user.id)\" class=\"btn btn-info\" style=\"margin-left: 10px\">Details</button>\n                </td>\n            </tr>\n            </tbody>\n        </table>\n    </div>\n</div>\n";
     /***/
   },
 
@@ -757,7 +817,7 @@
 
     let AppComponent = class AppComponent {};
     AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-      selector: 'app-root',
+      selector: "app-root",
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
       /*! raw-loader!./app.component.html */
       "./node_modules/raw-loader/dist/cjs.js!./src/app/app.component.html")).default,
@@ -862,9 +922,9 @@
     /* harmony import */
 
 
-    var _cart_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
-    /*! ./cart.service */
-    "./src/app/cart.service.ts");
+    var _services_cart_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    /*! ./services/cart.service */
+    "./src/app/services/cart.service.ts");
     /* harmony import */
 
 
@@ -895,6 +955,36 @@
     var _angular_material__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
     /*! @angular/material */
     "./node_modules/@angular/material/esm2015/material.js");
+    /* harmony import */
+
+
+    var _angular_material_icon__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
+    /*! @angular/material/icon */
+    "./node_modules/@angular/material/esm2015/icon.js");
+    /* harmony import */
+
+
+    var _angular_material_button__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(
+    /*! @angular/material/button */
+    "./node_modules/@angular/material/esm2015/button.js");
+    /* harmony import */
+
+
+    var _login_login_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(
+    /*! ./login/login.component */
+    "./src/app/login/login.component.ts");
+    /* harmony import */
+
+
+    var _register_register_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(
+    /*! ./register/register.component */
+    "./src/app/register/register.component.ts");
+    /* harmony import */
+
+
+    var _user_list_user_list_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(
+    /*! ./user-list/user-list.component */
+    "./src/app/user-list/user-list.component.ts");
 
     let AppModule = class AppModule {};
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
@@ -910,10 +1000,19 @@
       }, {
         path: "shipping",
         component: _shipping_shipping_component__WEBPACK_IMPORTED_MODULE_13__["ShippingComponent"]
-      }]), _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_14__["BrowserAnimationsModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_15__["MatFormFieldModule"], _angular_material__WEBPACK_IMPORTED_MODULE_16__["MatInputModule"]],
-      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"], _top_bar_top_bar_component__WEBPACK_IMPORTED_MODULE_7__["TopBarComponent"], _product_list_product_list_component__WEBPACK_IMPORTED_MODULE_8__["ProductListComponent"], _product_alerts_product_alerts_component__WEBPACK_IMPORTED_MODULE_9__["ProductAlertsComponent"], _product_details_product_details_component__WEBPACK_IMPORTED_MODULE_10__["ProductDetailsComponent"], _cart_cart_component__WEBPACK_IMPORTED_MODULE_12__["CartComponent"], _shipping_shipping_component__WEBPACK_IMPORTED_MODULE_13__["ShippingComponent"]],
+      }, {
+        path: "login",
+        component: _login_login_component__WEBPACK_IMPORTED_MODULE_19__["LoginComponent"]
+      }, {
+        path: "register",
+        component: _register_register_component__WEBPACK_IMPORTED_MODULE_20__["RegisterComponent"]
+      }, {
+        path: "userList",
+        component: _user_list_user_list_component__WEBPACK_IMPORTED_MODULE_21__["UserListComponent"]
+      }]), _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_14__["BrowserAnimationsModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_15__["MatFormFieldModule"], _angular_material__WEBPACK_IMPORTED_MODULE_16__["MatInputModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_17__["MatIconModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_18__["MatButtonModule"], _angular_material__WEBPACK_IMPORTED_MODULE_16__["MatSelectModule"]],
+      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"], _top_bar_top_bar_component__WEBPACK_IMPORTED_MODULE_7__["TopBarComponent"], _product_list_product_list_component__WEBPACK_IMPORTED_MODULE_8__["ProductListComponent"], _product_alerts_product_alerts_component__WEBPACK_IMPORTED_MODULE_9__["ProductAlertsComponent"], _product_details_product_details_component__WEBPACK_IMPORTED_MODULE_10__["ProductDetailsComponent"], _cart_cart_component__WEBPACK_IMPORTED_MODULE_12__["CartComponent"], _shipping_shipping_component__WEBPACK_IMPORTED_MODULE_13__["ShippingComponent"], _login_login_component__WEBPACK_IMPORTED_MODULE_19__["LoginComponent"], _register_register_component__WEBPACK_IMPORTED_MODULE_20__["RegisterComponent"], _user_list_user_list_component__WEBPACK_IMPORTED_MODULE_21__["UserListComponent"]],
       bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]],
-      providers: [_cart_service__WEBPACK_IMPORTED_MODULE_11__["CartService"]]
+      providers: [_services_cart_service__WEBPACK_IMPORTED_MODULE_11__["CartService"]]
     })], AppModule);
     /*
     Copyright Google LLC. All Rights Reserved.
@@ -921,84 +1020,6 @@
     can be found in the LICENSE file at http://angular.io/license
     */
 
-    /***/
-  },
-
-  /***/
-  "./src/app/cart.service.ts":
-  /*!*********************************!*\
-    !*** ./src/app/cart.service.ts ***!
-    \*********************************/
-
-  /*! exports provided: CartService */
-
-  /***/
-  function srcAppCartServiceTs(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "CartService", function () {
-      return CartService;
-    });
-    /* harmony import */
-
-
-    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-    /*! tslib */
-    "./node_modules/tslib/tslib.es6.js");
-    /* harmony import */
-
-
-    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-    /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
-    /* harmony import */
-
-
-    var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! @angular/common/http */
-    "./node_modules/@angular/common/fesm2015/http.js");
-
-    let CartService = class CartService {
-      constructor(httpClient) {
-        this.httpClient = httpClient;
-        this.items = [];
-      }
-
-      addToCart(product) {
-        this.items.push(product);
-      }
-
-      removeFromCard(product) {
-        let indexOfProductToBeRemoved = this.items.findIndex(i => i.name === product.name);
-        this.items.splice(indexOfProductToBeRemoved, 1);
-      }
-
-      clearCart() {
-        this.items = [];
-        return this.items;
-      }
-
-      getItems() {
-        return this.items;
-      }
-
-      getShippingPrices() {
-        return this.httpClient.get('/assets/shipping.json');
-      }
-
-    };
-
-    CartService.ctorParameters = () => [{
-      type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]
-    }];
-
-    CartService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-      providedIn: 'root'
-    })], CartService);
     /***/
   },
 
@@ -1056,9 +1077,9 @@
     /* harmony import */
 
 
-    var _cart_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ../cart.service */
-    "./src/app/cart.service.ts");
+    var _services_cart_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../services/cart.service */
+    "./src/app/services/cart.service.ts");
     /* harmony import */
 
 
@@ -1069,12 +1090,7 @@
     let CartComponent = class CartComponent {
       constructor(cartService, formBuilder) {
         this.cartService = cartService;
-        this.formBuilder = formBuilder;
-
-        this.errorHandling = (control, error) => {
-          return this.checkoutForm.controls[control].hasError(error);
-        }; // Populate items property with products (items) in array gathered from cartService
-
+        this.formBuilder = formBuilder; // Populate items property with products (items) in array gathered from cartService
 
         this.items = this.cartService.getItems();
         this.reactiveForm();
@@ -1085,6 +1101,30 @@
           name: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]],
           email: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].email]]
         });
+      }
+
+      getErrorMessage(control, fieldName) {
+        let error = null;
+
+        if (control.errors) {
+          const firstKey = Object.keys(control.errors)[0];
+
+          switch (firstKey) {
+            case 'required':
+              error = {
+                error: 'Enter ' + fieldName
+              };
+              break;
+
+            case 'email':
+              error = {
+                error: 'Enter valid ' + fieldName
+              };
+              break;
+          }
+        }
+
+        return error;
       }
 
       removeFromCard(product) {
@@ -1102,7 +1142,7 @@
     };
 
     CartComponent.ctorParameters = () => [{
-      type: _cart_service__WEBPACK_IMPORTED_MODULE_2__["CartService"]
+      type: _services_cart_service__WEBPACK_IMPORTED_MODULE_2__["CartService"]
     }, {
       type: _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"]
     }];
@@ -1116,6 +1156,98 @@
       /*! ./cart.component.css */
       "./src/app/cart/cart.component.css")).default]
     })], CartComponent);
+    /***/
+  },
+
+  /***/
+  "./src/app/login/login.component.css":
+  /*!*******************************************!*\
+    !*** ./src/app/login/login.component.css ***!
+    \*******************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppLoginLoginComponentCss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = ".loginFormContainer .mat-form-field {\n    display: block;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbG9naW4vbG9naW4uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLGNBQWM7QUFDbEIiLCJmaWxlIjoic3JjL2FwcC9sb2dpbi9sb2dpbi5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmxvZ2luRm9ybUNvbnRhaW5lciAubWF0LWZvcm0tZmllbGQge1xuICAgIGRpc3BsYXk6IGJsb2NrO1xufSJdfQ== */";
+    /***/
+  },
+
+  /***/
+  "./src/app/login/login.component.ts":
+  /*!******************************************!*\
+    !*** ./src/app/login/login.component.ts ***!
+    \******************************************/
+
+  /*! exports provided: LoginComponent */
+
+  /***/
+  function srcAppLoginLoginComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "LoginComponent", function () {
+      return LoginComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/forms */
+    "./node_modules/@angular/forms/fesm2015/forms.js");
+
+    let LoginComponent = class LoginComponent {
+      constructor(formBuilder) {
+        this.formBuilder = formBuilder;
+        this.hide = true;
+        this.loginForm = this.formBuilder.group({
+          email: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].email]],
+          password: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]]
+        });
+      }
+
+      onSubmit() {
+        window.alert("Login button clicked");
+      }
+
+      ngOnInit() {}
+
+    };
+
+    LoginComponent.ctorParameters = () => [{
+      type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"]
+    }];
+
+    LoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-login',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./login.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/login/login.component.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./login.component.css */
+      "./src/app/login/login.component.css")).default]
+    })], LoginComponent);
     /***/
   },
 
@@ -1259,9 +1391,9 @@
     /* harmony import */
 
 
-    var _cart_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../cart.service */
-    "./src/app/cart.service.ts");
+    var _services_cart_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ../services/cart.service */
+    "./src/app/services/cart.service.ts");
 
     let ProductDetailsComponent = class ProductDetailsComponent {
       constructor(route, cartService) {
@@ -1284,7 +1416,7 @@
     ProductDetailsComponent.ctorParameters = () => [{
       type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
     }, {
-      type: _cart_service__WEBPACK_IMPORTED_MODULE_4__["CartService"]
+      type: _services_cart_service__WEBPACK_IMPORTED_MODULE_4__["CartService"]
     }];
 
     ProductDetailsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1438,6 +1570,264 @@
   },
 
   /***/
+  "./src/app/register/register.component.css":
+  /*!*************************************************!*\
+    !*** ./src/app/register/register.component.css ***!
+    \*************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppRegisterRegisterComponentCss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = ".mat-form-field {\n    display: block;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcmVnaXN0ZXIvcmVnaXN0ZXIuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLGNBQWM7QUFDbEIiLCJmaWxlIjoic3JjL2FwcC9yZWdpc3Rlci9yZWdpc3Rlci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm1hdC1mb3JtLWZpZWxkIHtcbiAgICBkaXNwbGF5OiBibG9jaztcbn0iXX0= */";
+    /***/
+  },
+
+  /***/
+  "./src/app/register/register.component.ts":
+  /*!************************************************!*\
+    !*** ./src/app/register/register.component.ts ***!
+    \************************************************/
+
+  /*! exports provided: RegisterComponent */
+
+  /***/
+  function srcAppRegisterRegisterComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "RegisterComponent", function () {
+      return RegisterComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/forms */
+    "./node_modules/@angular/forms/fesm2015/forms.js");
+
+    let RegisterComponent = class RegisterComponent {
+      constructor(formBuilder) {
+        this.formBuilder = formBuilder;
+        this.hide = true;
+        this.hideConfirmation = true;
+        this.registerForm = this.formBuilder.group({
+          gender: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]],
+          firstName: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]],
+          lastName: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]],
+          street: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]],
+          streetNumber: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]],
+          postZip: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]],
+          place: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]],
+          email: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].email]],
+          emailConfirmation: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].email]],
+          password: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]],
+          passwordConfirmation: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]]
+        });
+      }
+
+      onSubmit() {
+        alert("Register form sent");
+      }
+
+      ngOnInit() {}
+
+    };
+
+    RegisterComponent.ctorParameters = () => [{
+      type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"]
+    }];
+
+    RegisterComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-register',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./register.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/register/register.component.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./register.component.css */
+      "./src/app/register/register.component.css")).default]
+    })], RegisterComponent);
+    /***/
+  },
+
+  /***/
+  "./src/app/services/cart.service.ts":
+  /*!******************************************!*\
+    !*** ./src/app/services/cart.service.ts ***!
+    \******************************************/
+
+  /*! exports provided: CartService */
+
+  /***/
+  function srcAppServicesCartServiceTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "CartService", function () {
+      return CartService;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/common/http */
+    "./node_modules/@angular/common/fesm2015/http.js");
+
+    let CartService = class CartService {
+      constructor(httpClient) {
+        this.httpClient = httpClient;
+        this.items = [];
+      }
+
+      addToCart(product) {
+        this.items.push(product);
+      }
+
+      removeFromCard(product) {
+        const indexOfProductToBeRemoved = this.items.findIndex(i => i.name === product.name);
+        this.items.splice(indexOfProductToBeRemoved, 1);
+      }
+
+      clearCart() {
+        this.items = [];
+        return this.items;
+      }
+
+      getItems() {
+        return this.items;
+      }
+
+      getShippingPrices() {
+        return this.httpClient.get("/assets/shipping.json");
+      }
+
+    };
+
+    CartService.ctorParameters = () => [{
+      type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]
+    }];
+
+    CartService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+      providedIn: "root"
+    })], CartService);
+    /***/
+  },
+
+  /***/
+  "./src/app/services/user.service.ts":
+  /*!******************************************!*\
+    !*** ./src/app/services/user.service.ts ***!
+    \******************************************/
+
+  /*! exports provided: UserService */
+
+  /***/
+  function srcAppServicesUserServiceTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "UserService", function () {
+      return UserService;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/common/http */
+    "./node_modules/@angular/common/fesm2015/http.js");
+
+    let UserService = class UserService {
+      constructor(http) {
+        this.http = http;
+        this.baseUrl = "http://localhost:8080/springboot-crud-rest/api/v1/users";
+      }
+
+      getUser(id) {
+        return this.http.get("".concat(this.baseUrl, "/").concat(id));
+      }
+
+      createUser(employee) {
+        return this.http.post("".concat(this.baseUrl), employee);
+      }
+
+      updateUser(id, value) {
+        return this.http.put("".concat(this.baseUrl, "/").concat(id), value);
+      }
+
+      deleteUser(id) {
+        return this.http.delete("".concat(this.baseUrl, "/").concat(id), {
+          responseType: "text"
+        });
+      }
+
+      getUsersList() {
+        return this.http.get("".concat(this.baseUrl));
+      }
+
+    };
+
+    UserService.ctorParameters = () => [{
+      type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]
+    }];
+
+    UserService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+      providedIn: "root"
+    })], UserService);
+    /***/
+  },
+
+  /***/
   "./src/app/shipping/shipping.component.css":
   /*!*************************************************!*\
     !*** ./src/app/shipping/shipping.component.css ***!
@@ -1491,9 +1881,9 @@
     /* harmony import */
 
 
-    var _cart_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ../cart.service */
-    "./src/app/cart.service.ts");
+    var _services_cart_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../services/cart.service */
+    "./src/app/services/cart.service.ts");
 
     let ShippingComponent = class ShippingComponent {
       constructor(cartService) {
@@ -1507,7 +1897,7 @@
     };
 
     ShippingComponent.ctorParameters = () => [{
-      type: _cart_service__WEBPACK_IMPORTED_MODULE_2__["CartService"]
+      type: _services_cart_service__WEBPACK_IMPORTED_MODULE_2__["CartService"]
     }];
 
     ShippingComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1595,6 +1985,115 @@
     can be found in the LICENSE file at http://angular.io/license
     */
 
+    /***/
+  },
+
+  /***/
+  "./src/app/user-list/user-list.component.css":
+  /*!***************************************************!*\
+    !*** ./src/app/user-list/user-list.component.css ***!
+    \***************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppUserListUserListComponentCss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3VzZXItbGlzdC91c2VyLWxpc3QuY29tcG9uZW50LmNzcyJ9 */";
+    /***/
+  },
+
+  /***/
+  "./src/app/user-list/user-list.component.ts":
+  /*!**************************************************!*\
+    !*** ./src/app/user-list/user-list.component.ts ***!
+    \**************************************************/
+
+  /*! exports provided: UserListComponent */
+
+  /***/
+  function srcAppUserListUserListComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "UserListComponent", function () {
+      return UserListComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _services_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @services/user.service */
+    "./src/app/services/user.service.ts");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/fesm2015/router.js");
+
+    let UserListComponent = class UserListComponent {
+      constructor(userService, router) {
+        this.userService = userService;
+        this.router = router;
+      }
+
+      ngOnInit() {
+        this.reloadData();
+      }
+
+      reloadData() {
+        this.users = this.userService.getUsersList();
+      }
+
+      deleteUser(id) {
+        this.userService.deleteUser(id).subscribe(data => {
+          console.log(data);
+          this.reloadData();
+        }, error => console.log(error));
+      }
+
+      userDetails(id) {
+        this.router.navigate(["details", id]);
+      }
+
+    };
+
+    UserListComponent.ctorParameters = () => [{
+      type: _services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"]
+    }, {
+      type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]
+    }];
+
+    UserListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: "app-user-list",
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./user-list.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/user-list/user-list.component.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./user-list.component.css */
+      "./src/app/user-list/user-list.component.css")).default]
+    })], UserListComponent);
     /***/
   },
 
