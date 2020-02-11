@@ -1,40 +1,49 @@
 import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { UserService } from "@services/user.service";
+import { User } from "@models/user";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: "app-register",
+  selector: "app-create-user",
   templateUrl: "./register.component.html",
   styleUrls: ["./register.component.css"]
 })
 export class RegisterComponent implements OnInit {
 
-  registerForm: FormGroup;
+  user: User = new User();
+  submitted = false;
   hide = true;
   hideConfirmation = true;
 
   constructor(
-    private formBuilder: FormBuilder
-  ) {
-    this.registerForm = this.formBuilder.group({
-      gender: ["", [Validators.required]],
-      firstName: ["", [Validators.required]],
-      lastName: ["", [Validators.required]],
-      street: ["", [Validators.required]],
-      streetNumber: ["", [Validators.required]],
-      postZip: ["", [Validators.required]],
-      place: ["", [Validators.required]],
-      email: ["", [Validators.required, Validators.email]],
-      emailConfirmation: ["", [Validators.required, Validators.email]],
-      password: ["", [Validators.required]],
-      passwordConfirmation: ["", [Validators.required]]
-    });
-  }
-
-  onSubmit() {
-    alert("Register form sent");
-  }
+      private userService: UserService,
+      private router: Router
+  ) { }
 
   ngOnInit() {
   }
 
+  newUser() {
+    this.submitted = false;
+    this.user = new User();
+  }
+
+  save() {
+    this.userService.createUser(this.user)
+        .subscribe(
+            data => console.log(data),
+            error => console.log(error)
+        );
+    this.user = new User();
+    this.gotoList();
+  }
+
+  onSubmit() {
+    this.submitted = true;
+    this.save();
+  }
+
+  gotoList() {
+    this.router.navigate(["/userList"]);
+  }
 }

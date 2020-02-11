@@ -1,10 +1,10 @@
 <div class="registerContainer">
     <h1>Register</h1>
     <div class="registerFormContainer">
-        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <form (ngSubmit)="onSubmit()">
             <mat-form-field>
                 <mat-label for="gender">Gender</mat-label>
-                <mat-select>
+                <mat-select id="gender" required [(ngModel)]="user.gender" name="gender">
                     <mat-option value="male">Male</mat-option>
                     <mat-option value="female">Female</mat-option>
                 </mat-select>
@@ -12,59 +12,54 @@
 
             <mat-form-field>
                 <mat-label for="firstName">Firstname</mat-label>
-                <input matInput type="text" formControlField="firstName">
+                <input matInput type="text" id="firstName" required [(ngModel)]="user.firstName" name="firstName">
             </mat-form-field>
 
             <mat-form-field>
                 <mat-label for="lastName">Lastname</mat-label>
-                <input matInput type="text" formControlField="lastName">
+                <input matInput type="text" id="lastName" required [(ngModel)]="user.lastName" name="lastName">
             </mat-form-field>
 
             <mat-form-field>
                 <mat-label for="street">Street</mat-label>
-                <input matInput type="text" formControlField="street">
+                <input matInput type="text" id="street" required [(ngModel)]="user.street" name="street">
             </mat-form-field>
 
             <mat-form-field>
                 <mat-label for="streetNumber">Number</mat-label>
-                <input matInput type="text" formControlField="streetNumber">
+                <input matInput type="text" id="streetNumber" required [(ngModel)]="user.streetNumber" name="streetNumber">
             </mat-form-field>
 
             <mat-form-field>
                 <mat-label for="postZip">PLZ</mat-label>
-                <input matInput type="text" formControlField="postZip">
+                <input matInput type="text" id="postZip" required [(ngModel)]="user.postzip" name="postZip">
             </mat-form-field>
 
             <mat-form-field>
                 <mat-label for="place">Place</mat-label>
-                <input matInput type="text" formControlField="place">
+                <input matInput type="text" id="place" required [(ngModel)]="user.place" name="place">
             </mat-form-field>
 
             <mat-form-field>
                 <mat-label for="email">E-Mail</mat-label>
-                <input matInput type="text" formControlField="email">
-            </mat-form-field>
-
-            <mat-form-field>
-                <mat-label for="emailConfirmation">E-Mail confirmation</mat-label>
-                <input matInput type="text" formControlField="emailConfirmation">
+                <input matInput type="text" id="email" required [(ngModel)]="user.email" name="email">
             </mat-form-field>
 
             <mat-form-field>
                 <mat-label for="password">Password</mat-label>
-                <input matInput [type]="hide ? 'password' : 'text'" formControlField="password" />
+                <input matInput [type]="hide ? 'password' : 'text'" id="password" required [(ngModel)]="user.password" name="password"/>
                 <button type="button" matSuffix class="mat-icon-button mat-button-base" (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                     <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
                 </button>
             </mat-form-field>
 
-            <mat-form-field>
-                <mat-label for="passwordConfirmation">Password confirmation</mat-label>
-                <input matInput [type]="hideConfirmation ? 'password' : 'text'" formControlField="passwordConfirmation" />
-                <button type="button" matSuffix class="mat-icon-button mat-button-base" (click)="hideConfirmation = !hideConfirmation" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hideConfirmation">
-                    <mat-icon>{{ hideConfirmation ? 'visibility_off' : 'visibility' }}</mat-icon>
-                </button>
-            </mat-form-field>
+            <!--        <mat-form-field>-->
+            <!--            <mat-label for="passwordConfirmation">Password confirmation</mat-label>-->
+            <!--            <input matInput [type]="hideConfirmation ? 'password' : 'text'" formControlField="passwordConfirmation" />-->
+            <!--            <button type="button" matSuffix class="mat-icon-button mat-button-base" (click)="hideConfirmation = !hideConfirmation" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hideConfirmation">-->
+            <!--                <mat-icon>{{ hideConfirmation ? 'visibility_off' : 'visibility' }}</mat-icon>-->
+            <!--            </button>-->
+            <!--        </mat-form-field>-->
 
             <button mat-raised-button color="primary" type="submit">Register</button>
         </form>
