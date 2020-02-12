@@ -1,10 +1,10 @@
 <div class="registerContainer">
     <h1>Register</h1>
     <div class="registerFormContainer">
-        <form (ngSubmit)="onSubmit()">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
             <mat-form-field>
                 <mat-label for="gender">Gender</mat-label>
-                <mat-select id="gender" required [(ngModel)]="user.gender" name="gender">
+                <mat-select required id="gender" formControlName="gender">
                     <mat-option value="male">Male</mat-option>
                     <mat-option value="female">Female</mat-option>
                 </mat-select>
@@ -12,10 +12,11 @@
 
             <mat-form-field>
                 <mat-label for="firstName">Firstname</mat-label>
-                <input matInput type="text" id="firstName" required [(ngModel)]="user.firstName" name="firstName">
+                <input matInput required type="text" id="firstName" formControlName="firstName">
+                <mat-error *ngIf="f.firstName.dirty">Test</mat-error>
             </mat-form-field>
 
-            <mat-form-field>
+<!--            <mat-form-field>
                 <mat-label for="lastName">Lastname</mat-label>
                 <input matInput type="text" id="lastName" required [(ngModel)]="user.lastName" name="lastName">
             </mat-form-field>
@@ -43,23 +44,24 @@
             <mat-form-field>
                 <mat-label for="email">E-Mail</mat-label>
                 <input matInput type="text" id="email" required [(ngModel)]="user.email" name="email">
-            </mat-form-field>
+            </mat-form-field>-->
 
             <mat-form-field>
                 <mat-label for="password">Password</mat-label>
-                <input matInput [type]="hide ? 'password' : 'text'" id="password" required [(ngModel)]="user.password" name="password"/>
+                <input matInput required [type]="hide ? 'password' : 'text'" id="password" formControlField="password"/>
                 <button type="button" matSuffix class="mat-icon-button mat-button-base" (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                     <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
                 </button>
+                <mat-error *ngIf="f.password.errors.required">Password is required</mat-error>
             </mat-form-field>
 
-            <!--        <mat-form-field>-->
-            <!--            <mat-label for="passwordConfirmation">Password confirmation</mat-label>-->
-            <!--            <input matInput [type]="hideConfirmation ? 'password' : 'text'" formControlField="passwordConfirmation" />-->
-            <!--            <button type="button" matSuffix class="mat-icon-button mat-button-base" (click)="hideConfirmation = !hideConfirmation" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hideConfirmation">-->
-            <!--                <mat-icon>{{ hideConfirmation ? 'visibility_off' : 'visibility' }}</mat-icon>-->
-            <!--            </button>-->
-            <!--        </mat-form-field>-->
+            <mat-form-field>
+                <mat-label for="confirmPassword">Password confirmation</mat-label>
+                <input matInput required [type]="hideConfirmation ? 'password' : 'text'" formControlField="confirmPassword" />
+                <button type="button" matSuffix class="mat-icon-button mat-button-base" (click)="hideConfirmation = !hideConfirmation" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hideConfirmation">
+                    <mat-icon>{{ hideConfirmation ? 'visibility_off' : 'visibility' }}</mat-icon>
+                </button>
+            </mat-form-field>
 
             <button mat-raised-button color="primary" type="submit">Register</button>
         </form>

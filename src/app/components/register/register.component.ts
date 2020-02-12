@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { UserService } from "@services/user.service";
 import { User } from "@models/user";
 import { Router } from "@angular/router";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import {MustMatch} from "../../helpers/MustMatch";
 
 @Component({
   selector: "app-create-user",
@@ -10,22 +12,27 @@ import { Router } from "@angular/router";
 })
 export class RegisterComponent implements OnInit {
 
+  registerForm: FormGroup;
   user: User = new User();
   submitted = false;
   hide = true;
   hideConfirmation = true;
 
   constructor(
+      private formBuilder: FormBuilder,
       private userService: UserService,
       private router: Router
   ) { }
 
   ngOnInit() {
-  }
-
-  newUser() {
-    this.submitted = false;
-    this.user = new User();
+    this.registerForm = this.formBuilder.group({
+      gender: ["", [Validators.required]],
+      firstName: ["", [Validators.required]],
+      password: ["", [Validators.required]],
+      confirmPassword: ["", [Validators.required]]
+    }, {
+      validator: MustMatch("password", "confirmPassword")
+    });
   }
 
   save() {
@@ -40,10 +47,20 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
+
+    // Stop here if form is invalid
+    if (this.registerForm.invalid) {
+      return;
+    }
+
     this.save();
   }
 
   gotoList() {
-    this.router.navigate(["/userList"]);
+    this.router.navigate(["/users"]);
+  }
+
+  get f() {
+    return this.registerForm.controls;
   }
 }
